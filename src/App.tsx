@@ -22,6 +22,7 @@ import emailjs from '@emailjs/browser';
 import logo from '../brand/jl.jpg';
 import work1 from '../brand/1.jpg';
 import work2 from '../brand/2.jpg';
+import verralogo from '../brand/verralogo.jpg';
 import work3 from '../brand/3.jpg';
 import work4 from '../brand/4.jpg';
 import work5 from '../brand/5.jpg';
@@ -814,15 +815,22 @@ export default function App() {
               <img src={logo} alt="JL Detailing" className="h-16 md:h-20 w-auto object-contain rounded-xl" />
             </a>
 
-            <p className="text-zinc-500 text-sm text-center">
+            <p className="text-zinc-500 text-sm md:text-left text-center">
               Professional mobile car detailing across Canterbury. <br className="sm:hidden" />
               © {new Date().getFullYear()} JL Detailing. All rights reserved.
             </p>
 
             <div className="flex items-center gap-6">
-              <a href="#" className="text-zinc-400 hover:text-accent transition-colors"><Facebook className="w-5 h-5" /></a>
-              <a href="#" className="text-zinc-400 hover:text-accent transition-colors"><Instagram className="w-5 h-5" /></a>
+              <a href="https://facebook.com/jldetailingnz" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-[#1877F2] transition-colors"><Facebook className="w-5 h-5" /></a>
+              <a href="https://instagram.com/jldetailingnz" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-[#E1306C] transition-colors"><Instagram className="w-5 h-5" /></a>
             </div>
+          </div>
+
+          <div className="mt-12 pt-8 border-t border-zinc-200/50 flex flex-col md:flex-row items-center justify-between gap-4">
+            <span className="text-xs text-zinc-400">Website proudly designed & developed by</span>
+            <a href="https://verrawebstudio.co.nz" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 hover:opacity-80 transition-opacity">
+              <img src={verralogo} alt="Verra Web Studio" className="h-6 w-auto grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" />
+            </a>
           </div>
         </div>
       </footer>
