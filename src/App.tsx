@@ -546,30 +546,30 @@ export default function App() {
       {/* Contact Section */}
       <section id="contact" className="py-24 bg-white">
         <div className="section-container">
-          <div className="bg-zinc-900 rounded-[3rem] overflow-hidden shadow-2xl">
+          <div className="bg-zinc-900 rounded-3xl lg:rounded-[3rem] overflow-hidden shadow-2xl">
             <div className="grid lg:grid-cols-2">
-              <div className="p-12 lg:p-20 text-white">
-                <h2 className="text-4xl lg:text-6xl font-bold mb-8 leading-tight">Ready for a <br /><span className="text-accent">Showroom Finish?</span></h2>
-                <p className="text-zinc-400 mb-12 text-lg">Book your mobile detail today. We operate Saturdays and Sundays across the Canterbury region.</p>
+              <div className="p-6 lg:p-20 text-white">
+                <h2 className="text-3xl lg:text-6xl font-bold mb-6 lg:mb-8 leading-tight">Ready for a <br /><span className="text-accent">Showroom Finish?</span></h2>
+                <p className="text-zinc-400 mb-8 lg:mb-12 text-base lg:text-lg">Book your mobile detail today. We operate Saturdays and Sundays across the Canterbury region.</p>
                 
-                <div className="space-y-8">
-                  <a href="tel:02102571133" className="flex items-center gap-6 group">
-                    <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center group-hover:bg-accent transition-colors">
-                      <Phone className="w-6 h-6" />
+                <div className="space-y-6 lg:space-y-8">
+                  <a href="tel:02102571133" className="flex items-center gap-4 lg:gap-6 group">
+                    <div className="w-12 h-12 lg:w-14 lg:h-14 bg-white/5 rounded-2xl flex items-center justify-center group-hover:bg-accent transition-colors">
+                      <Phone className="w-5 h-5 lg:w-6 lg:h-6" />
                     </div>
                     <div>
-                      <div className="text-xs text-zinc-500 uppercase font-bold tracking-widest mb-1">Call or Text</div>
-                      <div className="text-xl font-bold">021 025 71133</div>
+                      <div className="text-[10px] lg:text-xs text-zinc-500 uppercase font-bold tracking-widest mb-1">Call or Text</div>
+                      <div className="text-lg lg:text-xl font-bold">021 025 71133</div>
                     </div>
                   </a>
                   
-                  <a href="mailto:jlautodetailingnz@gmail.com" className="flex items-center gap-6 group">
-                    <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center group-hover:bg-accent transition-colors">
-                      <Mail className="w-6 h-6" />
+                  <a href="mailto:jlautodetailingnz@gmail.com" className="flex items-center gap-4 lg:gap-6 group">
+                    <div className="w-12 h-12 lg:w-14 lg:h-14 bg-white/5 rounded-2xl flex items-center justify-center group-hover:bg-accent transition-colors">
+                      <Mail className="w-5 h-5 lg:w-6 lg:h-6" />
                     </div>
                     <div>
-                      <div className="text-xs text-zinc-500 uppercase font-bold tracking-widest mb-1">Email Us</div>
-                      <div className="text-xl font-bold">jlautodetailingnz@gmail.com</div>
+                      <div className="text-[10px] lg:text-xs text-zinc-500 uppercase font-bold tracking-widest mb-1">Email Us</div>
+                      <div className="text-lg lg:text-xl font-bold text-sm sm:text-lg lg:text-xl break-all sm:break-normal">jlautodetailingnz@gmail.com</div>
                     </div>
                   </a>
                   
@@ -584,7 +584,7 @@ export default function App() {
                 </div>
               </div>
               
-              <div className="bg-zinc-800/50 p-12 lg:p-20 border-l border-white/5">
+              <div className="bg-zinc-800/50 p-6 lg:p-20 border-t lg:border-t-0 lg:border-l border-white/5">
                 <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div className="space-y-2">
