@@ -826,10 +826,10 @@ export default function App() {
             </div>
           </div>
 
-          <div className="mt-12 pt-8 border-t border-zinc-200/50 flex flex-col md:flex-row items-center justify-between gap-4">
-            <span className="text-xs text-zinc-400">Website proudly designed & developed by</span>
-            <a href="https://verrawebstudio.co.nz" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 hover:opacity-80 transition-opacity">
-              <img src={verralogo} alt="Verra Web Studio" className="h-6 w-auto grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" />
+          <div className="mt-12 pt-8 border-t border-zinc-200/50 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <span className="text-sm font-medium text-zinc-500">Website proudly designed & developed by</span>
+            <a href="https://verrawebstudio.co.nz" target="_blank" rel="noopener noreferrer" className="group flex items-center hover:opacity-80 transition-opacity">
+              <img src={verralogo} alt="Verra Web Studio" className="h-8 sm:h-10 w-auto rounded object-contain mix-blend-multiply transition-all duration-300" />
             </a>
           </div>
         </div>
