@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  Car, 
-  CheckCircle2, 
-  MapPin, 
-  Phone, 
-  Mail, 
-  Instagram, 
-  Facebook, 
-  Star, 
-  Clock, 
-  ChevronDown, 
-  ChevronUp, 
+import {
+  Car,
+  CheckCircle2,
+  MapPin,
+  Phone,
+  Mail,
+  Instagram,
+  Facebook,
+  Star,
+  Clock,
+  ChevronDown,
+  ChevronUp,
   ArrowRight,
   ShieldCheck,
   Sparkles,
@@ -18,6 +18,17 @@ import {
   Calendar
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import logo from '../brand/jl.jpg';
+import work1 from '../brand/1.jpg';
+import work2 from '../brand/2.jpg';
+import work3 from '../brand/3.jpg';
+import work4 from '../brand/4.jpg';
+import work5 from '../brand/5.jpg';
+import work6 from '../brand/6.jpg';
+import work7 from '../brand/7.jpg';
+import work8 from '../brand/8.jpg';
+import work9 from '../brand/9.png';
+import work10 from '../brand/10.png';
 
 // --- Types ---
 interface Pricing {
@@ -114,13 +125,17 @@ const REVIEWS = [
   }
 ];
 
-const GALLERY_IMAGES = [
-  'https://picsum.photos/seed/car1/800/600',
-  'https://picsum.photos/seed/car2/800/600',
-  'https://picsum.photos/seed/car3/800/600',
-  'https://picsum.photos/seed/car4/800/600',
-  'https://picsum.photos/seed/car5/800/600',
-  'https://picsum.photos/seed/car6/800/600',
+const GALLERY_ITEMS = [
+  { url: work1, alt: 'mobile car detailing service cleaning interior seats' },
+  { url: work2, alt: 'car exterior detailing foam wash christchurch' },
+  { url: work3, alt: 'professional car valet service interior dashboard' },
+  { url: work4, alt: 'paint protection and ceramic coating finish' },
+  { url: work5, alt: 'car interior cleaning deep carpet shampoo' },
+  { url: work6, alt: 'car exterior deep clean and polish protection' },
+  { url: work7, alt: 'Christchurch mobile auto detailing exterior wash' },
+  { url: work8, alt: 'Canterbury car detailing engine bay cleaning' },
+  { url: work9, alt: 'mobile car grooming pre wash and bug removal' },
+  { url: work10, alt: 'professional mobile car valet wheels cleaning' }
 ];
 
 // --- Components ---
@@ -137,13 +152,10 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md py-4 shadow-sm' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-zinc-900 rounded-lg flex items-center justify-center">
-            <Car className="text-accent w-6 h-6" />
-          </div>
-          <span className="font-display font-bold text-xl tracking-tighter">JL DETAILING</span>
-        </div>
-        
+        <a href="#" className="flex items-center -ml-2">
+          <img src={logo} alt="JL Detailing" className="h-20 md:h-24 w-auto object-contain rounded-xl" />
+        </a>
+
         <div className="hidden md:flex items-center gap-8 text-sm font-medium">
           <a href="#services" className="hover:text-accent transition-colors">Services</a>
           <a href="#how-it-works" className="hover:text-accent transition-colors">How it Works</a>
@@ -175,9 +187,9 @@ const ServiceCard = ({ service }: { service: Service; key?: string }) => {
           Most Popular
         </div>
       )}
-      
+
       <div className="mb-6">
-        <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
+        <h2 className="text-2xl font-bold mb-2">{service.title}</h2>
         <p className="text-zinc-500 text-sm leading-relaxed">{service.description}</p>
       </div>
 
@@ -200,7 +212,7 @@ const ServiceCard = ({ service }: { service: Service; key?: string }) => {
         </div>
       </div>
 
-      <button 
+      <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center justify-between w-full py-3 px-4 bg-zinc-50 rounded-xl text-sm font-semibold transition-colors hover:bg-zinc-100 mb-6"
       >
@@ -210,7 +222,7 @@ const ServiceCard = ({ service }: { service: Service; key?: string }) => {
 
       <AnimatePresence>
         {isOpen && (
-          <motion.ul 
+          <motion.ul
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -257,7 +269,23 @@ export default function App() {
             "addressRegion": "Canterbury",
             "addressCountry": "NZ"
           },
-          "areaServed": "Canterbury, New Zealand",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "-43.5320",
+            "longitude": "172.6362"
+          },
+          "priceRange": "$$",
+          "description": "Professional mobile car detailing, car valet service, interior cleaning, and paint protection in Christchurch and Canterbury.",
+          "areaServed": [
+            {
+              "@type": "City",
+              "name": "Christchurch"
+            },
+            {
+              "@type": "State",
+              "name": "Canterbury"
+            }
+          ],
           "openingHoursSpecification": [
             {
               "@type": "OpeningHoursSpecification",
@@ -276,68 +304,59 @@ export default function App() {
       <Navbar />
 
       {/* Hero Section */}
-      <header className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-0 right-0 w-1/2 h-full bg-zinc-50 skew-x-[-12deg] translate-x-1/4" />
-          <div className="absolute top-1/4 left-10 w-64 h-64 bg-accent/5 rounded-full blur-3xl" />
-        </div>
-        
-        <div className="section-container grid lg:grid-cols-2 gap-16 items-center">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent-dark text-xs font-bold uppercase tracking-wider mb-6">
-              <MapPin className="w-3 h-3" />
-              Mobile Detailing Canterbury
-            </div>
-            <h1 className="text-5xl lg:text-7xl font-bold leading-[1.1] mb-6">
-              Premium Car Care, <br />
-              <span className="text-accent">Delivered to You.</span>
-            </h1>
-            <p className="text-lg text-zinc-600 mb-10 max-w-lg leading-relaxed">
-              Professional mobile car detailing across Christchurch and Canterbury. We bring showroom-quality results to your driveway.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#services" className="btn-primary flex items-center justify-center gap-2">
-                View Packages <ArrowRight className="w-4 h-4" />
-              </a>
-              <a href="tel:02102571133" className="btn-secondary flex items-center justify-center gap-2">
-                <Phone className="w-4 h-4" /> Call 021 025 71133
-              </a>
-            </div>
-          </motion.div>
-          
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative"
-          >
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3]">
-              <img 
-                src="https://picsum.photos/seed/detailing/1200/900" 
-                alt="Professional Car Detailing" 
-                className="object-cover w-full h-full"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-            </div>
-            
-            {/* Floating Stats */}
-            <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl border border-zinc-100 hidden sm:block">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
-                  <Star className="text-accent w-6 h-6 fill-accent" />
-                </div>
-                <div>
-                  <div className="text-xl font-bold">5.0 Rating</div>
-                  <div className="text-xs text-zinc-500">Trusted by Canterbury locals</div>
-                </div>
+      <header className="relative pt-[160px] pb-[120px] bg-white overflow-hidden">
+        <div className="section-container">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+
+            {/* Left Column: 40% */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="w-full lg:w-[40%] flex flex-col items-start"
+            >
+              <div className="inline-flex items-center gap-2 text-sm font-medium text-zinc-600 mb-6 bg-zinc-50 border border-zinc-200 rounded-full px-4 py-2 shadow-sm">
+                <span className="text-yellow-500">⭐</span>
+                <span>5.0 rating from Canterbury customers</span>
               </div>
-            </div>
-          </motion.div>
+
+              <h1 className="text-5xl lg:text-6xl xl:text-[4rem] font-bold leading-[1.1] mb-6 tracking-tight text-zinc-900">
+                Mobile Car Detailing <br />
+                <span className="text-accent mt-2 block">Christchurch.</span>
+              </h1>
+
+              <p className="text-lg text-zinc-500 mb-10 leading-relaxed font-medium">
+                Professional mobile car detailing and valet service delivered to your driveway anywhere in Canterbury.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <a href="#services" className="bg-zinc-900 text-white px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-zinc-800 transition-colors shadow-md">
+                  Book a Detail <ArrowRight className="w-4 h-4" />
+                </a>
+                <a href="tel:02102571133" className="bg-white text-zinc-900 px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-zinc-50 transition-colors border-2 border-zinc-200 shadow-sm">
+                  <Phone className="w-4 h-4" /> Call 021 025 71133
+                </a>
+              </div>
+            </motion.div>
+
+            {/* Right Column: 60% */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="w-full lg:w-[60%] relative"
+            >
+              <div className="relative rounded-2xl overflow-hidden shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] aspect-[4/3] lg:aspect-[16/10] bg-zinc-100 ring-1 ring-zinc-200/50">
+                <img
+                  src={work1}
+                  alt="Professional mobile car detailing service on driveway"
+                  className="object-cover w-full h-full"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+            </motion.div>
+
+          </div>
         </div>
       </header>
 
@@ -348,7 +367,7 @@ export default function App() {
             <h2 className="text-3xl lg:text-5xl font-bold mb-4">The Seamless Process</h2>
             <p className="text-zinc-400 max-w-2xl mx-auto">Professional results without the hassle. Here is how we get your car looking its best.</p>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-12">
             {[
               {
@@ -384,12 +403,30 @@ export default function App() {
         </div>
       </section>
 
+      {/* Mobile Service Areas */}
+      <section className="py-24 bg-zinc-900 text-white">
+        <div className="section-container">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-5xl font-bold mb-4">Mobile Service Areas</h2>
+            <p className="text-zinc-400 max-w-2xl mx-auto">
+              We provide professional mobile car detailing in Christchurch, servicing the entire Canterbury region directly at your home or workplace.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 text-center text-sm font-semibold text-zinc-300">
+            <div className="p-4 bg-white/5 rounded-xl border border-white/10">Christchurch Central</div>
+            <div className="p-4 bg-white/5 rounded-xl border border-white/10">Rolleston & Lincoln</div>
+            <div className="p-4 bg-white/5 rounded-xl border border-white/10">Rangiora & Kaiapoi</div>
+            <div className="p-4 bg-white/5 rounded-xl border border-white/10">Lyttelton & Surrounds</div>
+          </div>
+        </div>
+      </section>
+
       {/* Services Section */}
       <section id="services" className="py-24 bg-white">
         <div className="section-container">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
             <div>
-              <h2 className="text-4xl lg:text-5xl font-bold mb-4">Detailing Packages</h2>
+              <h2 className="text-4xl lg:text-5xl font-bold mb-4">Car Detailing Services</h2>
               <p className="text-zinc-500 max-w-xl">Transparent pricing for every vehicle size. Choose the level of care your car deserves.</p>
             </div>
             <div className="flex items-center gap-4 text-sm font-medium text-zinc-500 bg-zinc-50 p-2 rounded-lg">
@@ -414,7 +451,7 @@ export default function App() {
               <p className="text-zinc-600 mb-8 leading-relaxed">
                 Customise your detail with our specialised extras. From headlight restoration to deep carpet shampooing, we handle the tough jobs.
               </p>
-              
+
               <div className="space-y-4">
                 <div className="p-4 bg-accent/5 border border-accent/10 rounded-xl flex items-start gap-4">
                   <Sparkles className="w-5 h-5 text-accent shrink-0 mt-1" />
@@ -460,7 +497,7 @@ export default function App() {
 
           <div className="grid md:grid-cols-2 gap-8">
             {REVIEWS.map((review, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 whileHover={{ y: -5 }}
                 className="p-8 bg-zinc-50 rounded-3xl border border-zinc-100 relative"
@@ -490,11 +527,11 @@ export default function App() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-8">
-            {GALLERY_IMAGES.map((img, idx) => (
+            {GALLERY_ITEMS.map((item, idx) => (
               <div key={idx} className="group relative aspect-square rounded-2xl overflow-hidden shadow-sm">
-                <img 
-                  src={img} 
-                  alt={`Detailing work ${idx + 1}`} 
+                <img
+                  src={item.url}
+                  alt={item.alt}
                   className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
                   referrerPolicy="no-referrer"
                 />
@@ -551,7 +588,7 @@ export default function App() {
               <div className="p-6 lg:p-20 text-white">
                 <h2 className="text-3xl lg:text-6xl font-bold mb-6 lg:mb-8 leading-tight">Ready for a <br /><span className="text-accent">Showroom Finish?</span></h2>
                 <p className="text-zinc-400 mb-8 lg:mb-12 text-base lg:text-lg">Book your mobile detail today. We operate Saturdays and Sundays across the Canterbury region.</p>
-                
+
                 <div className="space-y-6 lg:space-y-8">
                   <a href="tel:02102571133" className="flex items-center gap-4 lg:gap-6 group">
                     <div className="w-12 h-12 lg:w-14 lg:h-14 bg-white/5 rounded-2xl flex items-center justify-center group-hover:bg-accent transition-colors">
@@ -562,7 +599,7 @@ export default function App() {
                       <div className="text-lg lg:text-xl font-bold">021 025 71133</div>
                     </div>
                   </a>
-                  
+
                   <a href="mailto:jlautodetailingnz@gmail.com" className="flex items-center gap-4 lg:gap-6 group">
                     <div className="w-12 h-12 lg:w-14 lg:h-14 bg-white/5 rounded-2xl flex items-center justify-center group-hover:bg-accent transition-colors">
                       <Mail className="w-5 h-5 lg:w-6 lg:h-6" />
@@ -572,7 +609,7 @@ export default function App() {
                       <div className="text-lg lg:text-xl font-bold text-sm sm:text-lg lg:text-xl break-all sm:break-normal">jlautodetailingnz@gmail.com</div>
                     </div>
                   </a>
-                  
+
                   <div className="flex items-center gap-4 pt-4">
                     <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center hover:bg-[#1877F2] transition-colors">
                       <Facebook className="w-5 h-5" />
@@ -583,7 +620,7 @@ export default function App() {
                   </div>
                 </div>
               </div>
-              
+
               <div className="bg-zinc-800/50 p-6 lg:p-20 border-t lg:border-t-0 lg:border-l border-white/5">
                 <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                   <div className="grid sm:grid-cols-2 gap-6">
@@ -623,18 +660,15 @@ export default function App() {
       <footer className="bg-zinc-50 py-12 border-t border-zinc-100">
         <div className="section-container">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-zinc-900 rounded-lg flex items-center justify-center">
-                <Car className="text-accent w-5 h-5" />
-              </div>
-              <span className="font-display font-bold text-lg tracking-tighter">JL DETAILING</span>
-            </div>
-            
+            <a href="#" className="flex items-center">
+              <img src={logo} alt="JL Detailing" className="h-16 md:h-20 w-auto object-contain rounded-xl" />
+            </a>
+
             <p className="text-zinc-500 text-sm text-center">
               Professional mobile car detailing across Canterbury. <br className="sm:hidden" />
               © {new Date().getFullYear()} JL Detailing. All rights reserved.
             </p>
-            
+
             <div className="flex items-center gap-6">
               <a href="#" className="text-zinc-400 hover:text-accent transition-colors"><Facebook className="w-5 h-5" /></a>
               <a href="#" className="text-zinc-400 hover:text-accent transition-colors"><Instagram className="w-5 h-5" /></a>
