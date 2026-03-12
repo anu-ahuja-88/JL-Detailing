@@ -18,7 +18,6 @@ import {
   Calendar
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import emailjs from '@emailjs/browser';
 import logo from '../brand/jl.jpg';
 import work1 from '../brand/1.jpg';
 import work2 from '../brand/2.jpg';
@@ -260,44 +259,6 @@ const ServiceCard = ({ service, index }: { service: Service; index: number; key?
 };
 
 export default function App() {
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    service: 'Full Detail (Most Popular)',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus('idle');
-
-    try {
-      await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID',
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID',
-        {
-          from_name: formData.name,
-          phone_number: formData.phone,
-          service_required: formData.service,
-          message: formData.message,
-          to_name: 'JL Detailing',
-        },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY'
-      );
-      setSubmitStatus('success');
-      setFormData({ name: '', phone: '', service: 'Full Detail (Most Popular)', message: '' });
-      setTimeout(() => setSubmitStatus('idle'), 5000);
-    } catch (error) {
-      console.error('Failed to send email:', error);
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <div className="min-h-screen font-sans">
       {/* SEO Schema */}
@@ -342,8 +303,8 @@ export default function App() {
             }
           ],
           "sameAs": [
-            "https://www.facebook.com/jldetailingnz",
-            "https://www.instagram.com/jldetailingnz"
+            "https://www.facebook.com/profile.php?id=100089535740860",
+            "https://www.instagram.com/jl_auto_detailing_nz/"
           ]
         })}
       </script>
@@ -629,7 +590,7 @@ export default function App() {
               <h2 className="text-3xl lg:text-5xl font-bold mb-5 tracking-tight">Our Work</h2>
               <p className="text-zinc-500 text-lg max-w-xl">Exceptional results across Canterbury. See the transformation for yourself.</p>
             </div>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-bold bg-zinc-50 hover:bg-zinc-100 px-6 py-3 rounded-xl transition-colors border border-zinc-200">
+            <a href="https://www.instagram.com/jl_auto_detailing_nz/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-bold bg-zinc-50 hover:bg-zinc-100 px-6 py-3 rounded-xl transition-colors border border-zinc-200">
               <Instagram className="w-4 h-4" /> Follow on Instagram
             </a>
           </motion.div>
@@ -717,90 +678,45 @@ export default function App() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="bg-zinc-900 rounded-[2.5rem] lg:rounded-[3rem] overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] ring-1 ring-white/10"
+            className="bg-zinc-900 rounded-[2.5rem] lg:rounded-[3rem] overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] ring-1 ring-white/10 p-10 lg:p-24 text-center"
           >
-            <div className="grid lg:grid-cols-2">
-              <div className="p-10 lg:p-20 text-white">
-                <h2 className="text-3xl lg:text-5xl font-bold mb-6 lg:mb-8 leading-tight tracking-tight">Ready for a <br /><span className="text-accent">Showroom Finish?</span></h2>
-                <p className="text-zinc-400 mb-10 text-lg leading-relaxed">Book your mobile detail today. We operate Saturdays and Sundays across the Canterbury region.</p>
+            <div className="max-w-3xl mx-auto">
+              <h2 className="text-4xl lg:text-6xl font-bold mb-8 text-white leading-tight tracking-tight">
+                Ready for a <br /><span className="text-accent">Showroom Finish?</span>
+              </h2>
+              <p className="text-zinc-400 mb-16 text-lg lg:text-xl leading-relaxed">
+                Contact us today to discuss your vehicle or book a service. <br className="hidden md:block" />
+                We operate Saturdays and Sundays across the Canterbury region.
+              </p>
 
-                <div className="space-y-8">
-                  <a href="tel:02102571133" className="flex items-center gap-6 group">
-                    <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center group-hover:bg-accent group-hover:scale-105 transition-all duration-300 ring-1 ring-white/10 group-hover:ring-accent/50">
-                      <Phone className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <div className="text-xs text-zinc-500 uppercase font-bold tracking-widest mb-1.5">Call or Text</div>
-                      <div className="text-xl font-bold tracking-tight">021 025 71133</div>
-                    </div>
-                  </a>
-
-                  <a href="mailto:jlautodetailingnz@gmail.com" className="flex items-center gap-6 group">
-                    <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center group-hover:bg-accent group-hover:scale-105 transition-all duration-300 ring-1 ring-white/10 group-hover:ring-accent/50">
-                      <Mail className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <div className="text-xs text-zinc-500 uppercase font-bold tracking-widest mb-1.5">Email Us</div>
-                      <div className="text-base sm:text-lg lg:text-xl font-bold break-all sm:break-normal tracking-tight">jlautodetailingnz@gmail.com</div>
-                    </div>
-                  </a>
-
-                  <div className="flex items-center gap-4 pt-6">
-                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center hover:bg-[#1877F2] hover:scale-110 transition-all duration-300 ring-1 ring-white/10 hover:ring-transparent">
-                      <Facebook className="w-5 h-5" />
-                    </a>
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center hover:bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] hover:scale-110 transition-all duration-300 ring-1 ring-white/10 hover:ring-transparent">
-                      <Instagram className="w-5 h-5" />
-                    </a>
+              <div className="grid md:grid-cols-2 gap-8 mb-16">
+                <a href="tel:02102571133" className="flex flex-col items-center p-10 bg-white/5 rounded-[2rem] border border-white/10 hover:bg-accent group transition-all duration-300 transform hover:-translate-y-1">
+                  <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-white/20 transition-colors">
+                    <Phone className="w-8 h-8 text-white" />
                   </div>
-                </div>
+                  <div className="text-xs text-zinc-500 uppercase font-bold tracking-widest mb-2 group-hover:text-white/80 transition-colors">Call or Text</div>
+                  <div className="text-2xl font-bold text-white tracking-tight">021 025 71133</div>
+                </a>
+
+                <a href="mailto:jlautodetailingnz@gmail.com" className="flex flex-col items-center p-10 bg-white/5 rounded-[2rem] border border-white/10 hover:bg-accent group transition-all duration-300 transform hover:-translate-y-1">
+                  <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-white/20 transition-colors">
+                    <Mail className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="text-xs text-zinc-500 uppercase font-bold tracking-widest mb-2 group-hover:text-white/80 transition-colors">Email Us</div>
+                  <div className="text-xl lg:text-2xl font-bold text-white tracking-tight break-all">jlautodetailingnz@gmail.com</div>
+                </a>
               </div>
 
-              <div className="bg-white/5 p-10 lg:p-20 border-t lg:border-t-0 lg:border-l border-white/5 backdrop-blur-md">
-                <form className="space-y-6" onSubmit={handleSubmit}>
-                  <div className="grid sm:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label className="text-xs font-bold text-zinc-400 uppercase tracking-widest">Full Name</label>
-                      <input type="text" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full bg-black/20 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all duration-300 placeholder:text-zinc-600" placeholder="John Doe" />
-                    </div>
-                    <div className="space-y-2">
-                      <label className="text-xs font-bold text-zinc-400 uppercase tracking-widest">Phone Number</label>
-                      <input type="tel" required value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} className="w-full bg-black/20 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all duration-300 placeholder:text-zinc-600" placeholder="021..." />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold text-zinc-400 uppercase tracking-widest">Service Required</label>
-                    <div className="relative">
-                      <select required value={formData.service} onChange={(e) => setFormData({ ...formData, service: e.target.value })} className="w-full bg-black/20 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all duration-300 appearance-none">
-                        <option className="bg-zinc-900">Full Detail (Most Popular)</option>
-                        <option className="bg-zinc-900">Deluxe Interior Detail</option>
-                        <option className="bg-zinc-900">Deluxe Exterior Detail</option>
-                        <option className="bg-zinc-900">Other / Custom</option>
-                      </select>
-                      <ChevronDown className="absolute right-5 top-1/2 -translate-y-1/2 w-5 h-5 text-zinc-500 pointer-events-none" />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold text-zinc-400 uppercase tracking-widest">Message / Location</label>
-                    <textarea rows={4} required value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className="w-full bg-black/20 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all duration-300 placeholder:text-zinc-600 resize-none" placeholder="Tell us about your vehicle and location..."></textarea>
-                  </div>
-                  <button type="submit" disabled={isSubmitting} className="w-full bg-accent text-white py-4 rounded-xl font-bold hover:bg-accent-dark transition-all duration-300 hover:shadow-[0_0_20px_rgba(var(--color-accent),0.3)] hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed">
-                    {isSubmitting ? 'Sending...' : 'Send Enquiry'}
-                  </button>
-
-                  {submitStatus === 'success' && (
-                    <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="p-4 bg-green-500/10 border border-green-500/20 rounded-xl flex items-center gap-3 text-green-400 text-sm">
-                      <CheckCircle2 className="w-5 h-5 shrink-0" />
-                      Message sent successfully! We will be in touch shortly.
-                    </motion.div>
-                  )}
-                  {submitStatus === 'error' && (
-                    <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl flex items-center gap-3 text-red-400 text-sm font-medium">
-                      <div className="w-5 h-5 shrink-0 flex items-center justify-center font-bold">!</div>
-                      Failed to send message. Please check your connection or try calling us instead.
-                    </motion.div>
-                  )}
-                </form>
+              <div className="flex flex-col items-center gap-6">
+                <span className="text-xs text-zinc-500 uppercase font-bold tracking-widest">Follow our work</span>
+                <div className="flex items-center gap-4">
+                  <a href="https://www.facebook.com/profile.php?id=100089535740860" target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-white/5 rounded-full flex items-center justify-center hover:bg-[#1877F2] hover:scale-110 transition-all duration-300 ring-1 ring-white/10 hover:ring-transparent text-white">
+                    <Facebook className="w-6 h-6" />
+                  </a>
+                  <a href="https://www.instagram.com/jl_auto_detailing_nz/" target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-white/5 rounded-full flex items-center justify-center hover:bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] hover:scale-110 transition-all duration-300 ring-1 ring-white/10 hover:ring-transparent text-white">
+                    <Instagram className="w-6 h-6" />
+                  </a>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -821,8 +737,8 @@ export default function App() {
             </p>
 
             <div className="flex items-center gap-6">
-              <a href="https://facebook.com/jldetailingnz" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-[#1877F2] transition-colors"><Facebook className="w-5 h-5" /></a>
-              <a href="https://instagram.com/jldetailingnz" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-[#E1306C] transition-colors"><Instagram className="w-5 h-5" /></a>
+              <a href="https://www.facebook.com/profile.php?id=100089535740860" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-[#1877F2] transition-colors"><Facebook className="w-5 h-5" /></a>
+              <a href="https://www.instagram.com/jl_auto_detailing_nz/" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-[#E1306C] transition-colors"><Instagram className="w-5 h-5" /></a>
             </div>
           </div>
 
