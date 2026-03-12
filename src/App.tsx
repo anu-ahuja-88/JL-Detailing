@@ -22,7 +22,7 @@ import emailjs from '@emailjs/browser';
 import logo from '../brand/jl.jpg';
 import work1 from '../brand/1.jpg';
 import work2 from '../brand/2.jpg';
-import verralogo from '../brand/verralogo.jpg';
+import verralogo from '../brand/verralogo.svg';
 import work3 from '../brand/3.jpg';
 import work4 from '../brand/4.jpg';
 import work5 from '../brand/5.jpg';
@@ -829,7 +829,7 @@ export default function App() {
           <div className="mt-12 pt-8 border-t border-zinc-200/50 flex flex-col sm:flex-row items-center justify-center gap-4">
             <span className="text-sm font-medium text-zinc-500">Website proudly designed & developed by</span>
             <a href="https://verrawebstudio.co.nz" target="_blank" rel="noopener noreferrer" className="group flex items-center hover:opacity-80 transition-opacity">
-              <img src={verralogo} alt="Verra Web Studio" className="h-8 sm:h-10 w-auto rounded object-contain mix-blend-multiply transition-all duration-300" />
+              <img src={verralogo} alt="Verra Web Studio" className="h-20 sm:h-28 w-auto transition-all duration-300" />
             </a>
           </div>
         </div>
