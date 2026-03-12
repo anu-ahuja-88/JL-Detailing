@@ -102,9 +102,9 @@ const EXTRAS: Extra[] = [
   { name: 'Seat Upholstery Shampoo (7 Seater)', price: '$120' },
   { name: 'Deep Carpet shampoo', price: 'From $50' },
   { name: 'Leather seats clean and protect', price: 'From $50' },
-  { name: '1 stage paint correction (Small)', price: '$250' },
-  { name: '1 stage paint correction (Medium)', price: '$320' },
-  { name: '1 stage paint correction (Large)', price: '$400' },
+  { name: 'one stage paint correction (Small)', price: '$250' },
+  { name: 'one stage paint correction (Medium)', price: '$320' },
+  { name: 'one stage paint correction (Large)', price: '$400' },
 ];
 
 const REVIEWS = [
