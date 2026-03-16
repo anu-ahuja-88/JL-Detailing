@@ -77,6 +77,7 @@ const SERVICES: Service[] = [
       'Pre wash & Bug removal',
       'Hand wash with premium soap',
       'Wheels and inner guards cleaned',
+      'Door jambs cleaned',
       'Exterior trim and tyres dressed',
       'Paint sealant (3 month durability)'
     ]
@@ -96,15 +97,15 @@ const SERVICES: Service[] = [
 ];
 
 const EXTRAS: Extra[] = [
-  { name: 'Engine bay detail', price: '$50' },
-  { name: 'Headlight restoration', price: '$120' },
+  { name: 'Engine Bay Detail', price: '$50' },
+  { name: 'Headlight Restoration', price: '$120' },
   { name: 'Seat Upholstery Shampoo (5 Seater)', price: '$80' },
   { name: 'Seat Upholstery Shampoo (7 Seater)', price: '$120' },
-  { name: 'Deep Carpet shampoo', price: 'From $50' },
-  { name: 'Leather seats clean and protect', price: 'From $50' },
-  { name: 'One stage paint correction (Small)', price: '$250' },
-  { name: 'One stage paint correction (Medium)', price: '$320' },
-  { name: 'One stage paint correction (Large)', price: '$400' },
+  { name: 'Deep Carpet Shampoo', price: 'From $50' },
+  { name: 'Leather Seats Clean And Protect', price: 'From $50' },
+  { name: 'One Stage Paint Correction (Small)', price: '$250' },
+  { name: 'One Stage Paint Correction (Medium)', price: '$320' },
+  { name: 'One Stage Paint Correction (Large)', price: '$400' },
 ];
 
 const REVIEWS = [
