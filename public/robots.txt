@@ -1,0 +1,8 @@
+# Professional Mobile Car Detailing Christchurch
+# https://jldetailing.co.nz/
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://jldetailing.co.nz/sitemap.xml
