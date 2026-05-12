@@ -99,13 +99,14 @@ const SERVICES: Service[] = [
 const EXTRAS: Extra[] = [
   { name: 'Engine Bay Detail', price: '$50' },
   { name: 'Headlight Restoration', price: '$120' },
-  { name: 'Seat Upholstery Shampoo (5 Seater)', price: '$80' },
-  { name: 'Seat Upholstery Shampoo (7 Seater)', price: '$120' },
-  { name: 'Deep Carpet Shampoo', price: 'From $50' },
+  { name: 'Seat Upholstery Shampoo (5 Seater)', price: '$99' },
+  { name: 'Seat Upholstery Shampoo (7 Seater)', price: '$149' },
+  { name: 'Deep Carpet Shampoo', price: 'From $99' },
   { name: 'Leather Seats Clean And Protect', price: 'From $50' },
-  { name: 'One Stage Paint Correction (Small)', price: '$250' },
-  { name: 'One Stage Paint Correction (Medium)', price: '$320' },
-  { name: 'One Stage Paint Correction (Large)', price: '$400' },
+  { name: 'One Stage Paint Correction (Small)', price: '$299' },
+  { name: 'One Stage Paint Correction (Medium)', price: '$349' },
+  { name: 'One Stage Paint Correction (Large)', price: '$399' },
+  { name: 'Ceramic Wax Coat', price: '$99' },
 ];
 
 const REVIEWS = [
