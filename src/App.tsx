@@ -98,7 +98,7 @@ const SERVICES: Service[] = [
 
 const EXTRAS: Extra[] = [
   { name: 'Engine Bay Detail', price: '$50' },
-  { name: 'Headlight Restoration', price: '$120' },
+  { name: 'Headlight Restoration', price: '$149' },
   { name: 'Seat Upholstery Shampoo (5 Seater)', price: '$99' },
   { name: 'Seat Upholstery Shampoo (7 Seater)', price: '$149' },
   { name: 'Deep Carpet Shampoo', price: 'From $99' },
@@ -299,7 +299,7 @@ export default function App() {
           "openingHoursSpecification": [
             {
               "@type": "OpeningHoursSpecification",
-              "dayOfWeek": ["Saturday", "Sunday"],
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
               "opens": "08:00",
               "closes": "18:00"
             }
@@ -469,7 +469,7 @@ export default function App() {
               <p className="text-zinc-500 max-w-xl text-lg">Transparent pricing for every vehicle size. Choose the level of care your car deserves.</p>
             </div>
             <div className="flex items-center gap-4 text-sm font-semibold text-zinc-600 bg-white shadow-sm border border-zinc-100 px-4 py-3 rounded-xl">
-              <span className="flex items-center gap-2"><Clock className="w-4 h-4 text-accent" /> Available Sat & Sun</span>
+              <span className="flex items-center gap-2"><Clock className="w-4 h-4 text-accent" /> Available 7 Days a Week</span>
             </div>
           </motion.div>
 
@@ -652,7 +652,7 @@ export default function App() {
                 },
                 {
                   q: "When can I book?",
-                  a: "We are available for bookings on Saturdays and Sundays. We recommend booking at least a week in advance to secure your preferred slot."
+                  a: "We are available for bookings 7 days a week. We recommend booking at least a week in advance to secure your preferred slot."
                 }
               ].map((faq, idx) => (
                 <motion.div
@@ -688,7 +688,7 @@ export default function App() {
               </h2>
               <p className="text-zinc-400 mb-16 text-lg lg:text-xl leading-relaxed">
                 Contact us today to discuss your vehicle or book a service. <br className="hidden md:block" />
-                We operate Saturdays and Sundays across the Canterbury region.
+                We operate 7 days a week across the Canterbury region.
               </p>
 
               <div className="grid md:grid-cols-2 gap-8 mb-16">
