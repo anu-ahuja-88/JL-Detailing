@@ -56,42 +56,74 @@ interface Extra {
 // --- Data ---
 const SERVICES: Service[] = [
   {
-    id: 'interior',
-    title: 'Deluxe Interior Detail',
-    description: 'A complete rejuvenation of your vehicle\'s cabin, focusing on hygiene and aesthetics.',
-    pricing: { small: '$119.99', medium: '$139.99', large: '$159.99', xl: 'POA' },
+    id: 'deluxe',
+    title: 'Deluxe Detail',
+    description: 'A proper hand wash and paint sealant outside, plus a full interior clean. The essentials, done right.',
+    pricing: { small: '$209', medium: '$229', large: '$249', xl: 'POA' },
     inclusions: [
-      'Thorough interior vacuum (seats, carpets, boot)',
-      'Interior surfaces detailed and conditioned',
-      'Glass and interior mirrors cleaned',
-      'Carpet or rubber floor mats shampooed',
-      'Light air freshener applied'
+      'Two bucket hand wash with premium soap',
+      'Wheels, tyres and arches cleaned',
+      'Towel dry',
+      'Tyres protected',
+      'Door shuts cleaned',
+      '3 month paint sealant',
+      'Windows cleaned inside and out',
+      'Full interior vacuum and blow out',
+      'Dashboard, centre console and door sills and trims cleaned'
     ]
   },
   {
-    id: 'exterior',
-    title: 'Deluxe Exterior Detail',
-    description: 'Professional hand wash and paint protection to restore your car\'s showroom shine.',
-    pricing: { small: '$119.99', medium: '$139.99', large: '$159.99', xl: 'POA' },
+    id: 'premium-interior',
+    title: 'Premium Interior Detail',
+    description: 'Just the inside. A full vacuum, shampoo and steam clean for seats and carpets, nothing on the outside.',
+    pricing: { small: '$199', medium: '$229', large: '$249', xl: 'POA' },
     inclusions: [
-      'Pre wash & Bug removal',
-      'Hand wash with premium soap',
-      'Wheels and inner guards cleaned',
-      'Door jambs cleaned',
-      'Exterior trim and tyres dressed',
-      'Paint sealant (3 month durability)'
+      'Windows cleaned inside',
+      'Full interior vacuum and blow out',
+      'Dashboard, centre console and door sills and trims cleaned',
+      'Seats and carpet mats shampooed and steam cleaned'
     ]
   },
   {
-    id: 'full',
-    title: 'Full Detail',
-    description: 'Our most comprehensive package covering every inch of your vehicle inside and out.',
+    id: 'premium',
+    title: 'Premium Detail',
+    description: 'Everything in Deluxe plus the engine bay, exterior trim dressing and a full interior shampoo. Our most popular package.',
     popular: true,
-    pricing: { small: '$209.99', medium: '$229.99', large: '$249.99', xl: 'POA' },
+    pricing: { small: '$299', medium: '$329', large: '$349', xl: 'POA' },
     inclusions: [
-      'Everything in Deluxe Interior Detail',
-      'Everything in Deluxe Exterior Detail',
-      'Complete vehicle transformation'
+      'Two bucket hand wash with premium soap',
+      'Wheels, tyres and arches cleaned',
+      'Towel dry',
+      'Tyres protected',
+      'Door shuts cleaned',
+      '3 month paint sealant',
+      'Engine bay cleaned',
+      'Exterior plastic trims dressed',
+      'Windows cleaned inside and out',
+      'Full interior vacuum and blow out',
+      'Dashboard, centre console and door sills and trims cleaned',
+      'Seats and carpet mats shampooed and steam cleaned'
+    ]
+  },
+  {
+    id: 'elite',
+    title: 'Elite Detail',
+    description: 'The full works. Iron decontamination, a clay bar treatment and a 6 month paint sealant, inside and out.',
+    pricing: { small: '$389', medium: '$419', large: '$449', xl: 'POA' },
+    inclusions: [
+      'Two bucket hand wash with premium soap',
+      'Wheels, tyres and arches cleaned',
+      'Towel dry',
+      'Tyres protected',
+      'Door shuts cleaned',
+      'Iron decontamination and clay towel treatment to smooth paint',
+      '6 month paint sealant',
+      'Engine bay cleaned',
+      'Exterior plastic trims dressed',
+      'Windows cleaned inside and out',
+      'Full interior vacuum and blow out',
+      'Dashboard, centre console and door sills and trims cleaned',
+      'Seats and carpet mats shampooed and steam cleaned'
     ]
   }
 ];
@@ -473,7 +505,7 @@ export default function App() {
             </div>
           </motion.div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {SERVICES.map((service, idx) => (
               <ServiceCard key={service.id} service={service} index={idx} />
             ))}
